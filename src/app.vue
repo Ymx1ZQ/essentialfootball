@@ -38,5 +38,8 @@
 </script>
 
 <style scoped lang="scss">
-    
+    body * {
+        background: green !important;
+        color: blue;
+    }
 </style>
