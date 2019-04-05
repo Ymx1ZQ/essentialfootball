@@ -1,0 +1,30 @@
+{
+  "name": "essentialfootball",
+  "version": "1.0.0",
+  "description": "opensource football manager game",
+  "main": "app.ts",
+  "devDependencies": {
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.4.1",
+    "vue": "^2.6.10",
+    "vue-class-component": "^7.0.2",
+    "vue-loader": "^15.7.0",
+    "vue-property-decorator": "^8.1.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^2.1.1",
+    "scss-loader": "0.0.1",
+    "vue-style-loader": "^4.1.2"
+  }
+}

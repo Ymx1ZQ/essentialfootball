@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "strict": true,
+        "module": "es2015",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "strictPropertyInitialization": false,
+        "strictNullChecks": false,
+        "lib": [
+            "dom",
+            "es2016"
+        ],
+        "baseUrl": "."
+    },
+    "include": [
+        "./**/*.ts",
+        "./**/*.vue",
+        "./*.ts"
+    ]
+}
