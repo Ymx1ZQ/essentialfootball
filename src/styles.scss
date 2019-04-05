@@ -1,4 +1,2 @@
-body * {
-	background: red;
-	color: blue;
-}
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'bootstrap-vue/src/index.scss';
