@@ -30,6 +30,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "local-web-server": "^2.6.1"
+    "local-web-server": "^2.6.1",
+    "moment": "^2.24.0",
+    "ts-transformer-keys": "^0.3.4"
   }
 }

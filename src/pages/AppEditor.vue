@@ -65,12 +65,17 @@
         }
 
         createLeague() {
-            let league:League = new League('new league')
+            let league:League = new League()
+            let leagueState:LeagueState = {
+                id: league.id,
+                name: 'new league'
+            }
+            league.import(leagueState)
             this.database.leagues.push(league)
         }
 
-        updateLeague(leagueSelector:string, leagueState:LeagueState) {
-            this.database.leagues.find(league=>league.id==leagueSelector).importState(leagueState)
+        updateLeague(leagueState:LeagueState) {
+            this.database.leagues.find(league=>league.id==leagueState.id).import(leagueState)
         }
         
     }

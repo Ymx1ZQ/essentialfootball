@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
+const keysTransformer = require('ts-transformer-keys/transformer').default;
 
 module.exports = {
   entry: './src/app.ts',
@@ -21,6 +22,9 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           appendTsSuffixTo: [/\.vue$/],
+          getCustomTransformers: program => ({
+              before: [keysTransformer(program)]
+          })
         }
       },
       {

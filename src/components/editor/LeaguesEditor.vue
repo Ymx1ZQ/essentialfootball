@@ -14,6 +14,7 @@
             <div class="col-md-9">
                 <div v-if="selectedLeague">
                     <div id="leagueCard" class="form-group card">
+                        <p class="small text-muted">ID: {{leagueSelector}}</p>
                         <label>Name</label>
                         <input class="form-control" type="text" name="name" :value="selectedLeague.name" @keyup="updateLeague" @change="updateLeague"/>
                     </div>
@@ -67,9 +68,10 @@
         updateLeague() {
             let nameInput = document.querySelector('#leagueCard input[name="name"]') as HTMLInputElement
             let leagueState:LeagueState = {
+                id: this.leagueSelector,
                 name: nameInput.value
             }
-            this.$emit('updateLeague', this.leagueSelector, leagueState)
+            this.$emit('updateLeague', leagueState)
         }
 
     }
