@@ -22,3 +22,12 @@ body::before {
 .bg-dark-semitransparent {
 	background-color: rgba(20, 20, 50, 0.7);
 }
+
+.logo {
+	background-image: url("/images/logo.png");
+	width: 56px;
+	height: 56px;
+	margin-bottom: -16px;
+	background-size: cover;
+	display: inline-block;
+}

@@ -1,7 +1,10 @@
 <template>
     <div style="height: 100%">
         <header class="navbar navbar-dark bg-dark text-light" >
-            <h1>Essential Football</h1>
+            <h1>
+                <div class="logo"></div>
+                Essential Football
+            </h1>
         </header>
         <main class="bg-dark-semitransparent text-white">
             <div class="container-fluid">
