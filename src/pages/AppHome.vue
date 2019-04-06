@@ -1,10 +1,12 @@
 <template>
     <div>
-        <h2>Start the game!</h2>
-        <button class="btn btn-success" disabled="disabled">New Game</button><br/>
-        <button class="btn btn-primary"><router-link class="text-white" :to="{name: 'editor'}">Editor</router-link></button><br/>
-        <button class="btn btn-info" disabled="disabled">Settings</button><br/>
-        <button class="btn btn-info" disabled="disabled">Credits</button>
+        <h2>Start the game!</h2><br/>
+         <div class="col-md-3">
+            <button class="btn btn-block btn-success" disabled="disabled">New Game</button><br/><br/>
+            <router-link class="btn btn-block btn-primary text-white" :to="{name: 'editor'}">Editor</router-link><br/><br/>
+            <button class="btn btn-block btn-info" disabled="disabled">Settings</button><br/><br/>
+            <button class="btn btn-block btn-info" disabled="disabled">Credits</button><br/>
+        </div>
     </div>
 </template>
 

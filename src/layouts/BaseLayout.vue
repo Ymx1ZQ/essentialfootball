@@ -3,7 +3,7 @@
         <header class="navbar navbar-dark bg-dark text-light" >
             <h1>Essential Football</h1>
         </header>
-        <main class="bg-secondary text-white">
+        <main class="bg-dark-semitransparent text-white">
             <div class="container-fluid">
                 <router-view></router-view>
             </div>
@@ -33,8 +33,18 @@
 </script>
 
 <style scoped lang="scss">
+    header {
+        height: 72px;
+    }
+    footer {
+        height: 24px;
+    }
+    main {
+        height: calc( 100vh - 96px );
+    }
     main div {
         padding-top: 1em;
         padding-bottom: 1em;
     }
+
 </style>
