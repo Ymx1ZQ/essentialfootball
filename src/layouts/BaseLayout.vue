@@ -44,6 +44,8 @@
     }
     main {
         height: calc( 100vh - 96px );
+        max-height: calc( 100vh - 96px );
+        overflow-y: auto;
     }
     main div {
         padding-top: 1em;

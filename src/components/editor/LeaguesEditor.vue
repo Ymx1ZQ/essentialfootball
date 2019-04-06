@@ -12,9 +12,9 @@
                 <button class="btn btn-primary" @click="createLeague">Create league</button>
             </div>
             <div class="col-md-9">
-                <div v-if="selectedLeague">
-                    <div id="leagueCard" class="form-group card">
-                        <p class="small text-muted">ID: {{leagueSelector}}</p>
+                <div v-if="selectedLeague" class="editor-card">
+                    <p class="small text-muted">ID: {{leagueSelector}}</p>
+                    <div id="leagueCard" class="form-group">
                         <label>Name</label>
                         <input class="form-control" type="text" name="name" :value="selectedLeague.name" @keyup="updateLeague" @change="updateLeague"/>
                     </div>
@@ -28,7 +28,7 @@
     import Vue, {ComponentOptions} from 'vue'
     import Component from 'vue-class-component'
     import {Prop} from 'vue-property-decorator' 
-    import {League, LeagueState} from '../../entities/League'
+    import {League, LeagueData} from '../../entities/League'
     import { BasicSelect } from 'vue-search-select'
 
     @Component({
@@ -67,19 +67,16 @@
 
         updateLeague() {
             let nameInput = document.querySelector('#leagueCard input[name="name"]') as HTMLInputElement
-            let leagueState:LeagueState = {
+            let leagueData:LeagueData = {
                 id: this.leagueSelector,
                 name: nameInput.value
             }
-            this.$emit('updateLeague', leagueState)
+            this.$emit('updateLeague', leagueData)
         }
 
     }
 </script>
 
 <style scoped lang="scss">
-    .card {
-        background: rgba(0,0,0,0.5);
-        padding: 1em;
-    }
+
 </style>

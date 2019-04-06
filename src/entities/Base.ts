@@ -1,6 +1,6 @@
 import uuidv4 from 'uuid/v4'
 
-export interface BaseState {
+export interface BaseData {
 	id: string
 }
 
@@ -16,19 +16,19 @@ export class Base {
 		return this._id
 	}
 
-	_import(state:any) {
+	_import(data:any) {
 		let entity = this
 		this._keys.forEach(key=>{
-			entity['_'+key]=state[key]
+			entity['_'+key]=data[key]
 		})
 	}
 
 	export() {
-		let state:any = {}
+		let data:any = {}
 		let entity = this
 		this._keys.forEach(key=>{
-			state[key] = entity['_'+key]
+			data[key] = entity['_'+key]
 		})
-		return state
+		return data
 	}
 }

@@ -1,21 +1,29 @@
-import {Base, BaseState} from './Base'
+import {Base, BaseData} from './Base'
 import {keys} from 'ts-transformer-keys';
 import * as moment from "moment";
 
-export interface FootballerState extends BaseState {
+export interface FootballerData extends BaseData {
 	firstName: string
 	lastName: string
+	birthDate: string
 }
+const dataKeys = keys<FootballerData>()
 
 export class Footballer extends Base {
 	private _firstName: string
 	private _lastName: string
+	private _birthDate: string
 
 	constructor() {
 		super()
-		this._keys = keys<Footballer>();
+		this._keys = dataKeys;
 	}
 
+	import(data: FootballerData) {
+		this._import(data)
+	}
+
+	// getters
 	get firstName() {
 		return this._firstName
 	}
@@ -23,9 +31,14 @@ export class Footballer extends Base {
 	get lastName() {
 		return this._lastName
 	}
+
+	get birthDate() {
+		return moment(this._birthDate)
+	}
 	
-	import(state: Footballer) {
-		this._import(state)
+	// computed
+	ageOn(dateString: string) {
+		return this.birthDate.diff(dateString, 'years');
 	}
 
 }

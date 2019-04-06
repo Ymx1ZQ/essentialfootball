@@ -1,27 +1,26 @@
-import {Base, BaseState} from './Base'
+import {Base, BaseData} from './Base'
 import {keys} from 'ts-transformer-keys';
 
-export interface LeagueState extends BaseState {
+export interface LeagueData extends BaseData {
 	name: string
 }
-const _keys = keys<LeagueState>()
+const dataKeys = keys<LeagueData>()
 
 export class League extends Base {
 	private _name: string
 
 	constructor() {
 		super()
-		this._keys = _keys
+		this._keys = dataKeys
 	}
 
-	import(state: LeagueState) {
-		this._import(state)
+	import(data: LeagueData) {
+		this._import(data)
 	}
 
 	// getters
 	get name() {
 		return this._name
 	}
-	
 
 }
