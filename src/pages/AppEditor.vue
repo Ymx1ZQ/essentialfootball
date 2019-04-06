@@ -1,5 +1,8 @@
 <template>
-      <router-view></router-view>
+    <div>
+        <h2>Editor</h2>
+        <router-link :to="{name: 'home'}">Cancel</router-link>
+    </div>
 </template>
 
 <script lang="ts">
@@ -13,7 +16,7 @@
         }
     } as ComponentOptions<Vue>)
     
-    export default class App extends Vue {
+    export default class AppEditor extends Vue {
         // props
         // @Prop(String) readonly agencyId: string
         // @Prop(String) readonly apiToken: string
