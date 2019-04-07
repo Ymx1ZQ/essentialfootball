@@ -19,7 +19,12 @@
                     @createTeam="createTeam" 
                     @updateTeam="updateTeam"
                 ></teams-editor></b-tab>
-                <b-tab title="Footballers"><footballers-editor :footballers="database.footballers"></footballers-editor></b-tab>
+                <b-tab title="Footballers"><footballers-editor 
+                    :footballers="database.footballers"
+                    :teams="database.teams"
+                    @createFootballer="createFootballer"
+                    @updateFootballer="updateFootballer"
+                ></footballers-editor></b-tab>
             </b-tabs>
             <hr class="bg-light"/>
             <button class="btn btn-success" @saveDatabase>Save data</button>
@@ -32,13 +37,16 @@
     import Component from 'vue-class-component'
     import {Prop} from 'vue-property-decorator' 
     import {Database} from '../interfaces/interfaces'
+    import {Footballer, FootballerData} from '../entities/Footballer'
     import {League, LeagueData} from '../entities/League'
     import {Team, TeamData} from '../entities/Team'
+    import FootballersEditor from '../components/editor/FootballersEditor'
     import LeaguesEditor from '../components/editor/LeaguesEditor'
     import TeamsEditor from '../components/editor/TeamsEditor'
 
     @Component({
         components: {
+            "footballers-editor": FootballersEditor,
             "leagues-editor": LeaguesEditor,
             "teams-editor": TeamsEditor
         }
@@ -70,6 +78,20 @@
                 teams: []
             }
             this.databaseLoaded = true
+        }
+
+        createFootballer() {
+            let footballer:Footballer = new Footballer()
+            let footballerData:FootballerData = {
+                id: footballer.id,
+                firstName: 'new',
+                lastName: 'footballer',
+                nickName: '',
+                birthDate: '1987-08-31',
+                team: undefined
+            }
+            footballer.import(footballerData)
+            this.database.footballers.push(footballer)
         }
 
         createLeague() {
@@ -105,6 +127,10 @@
 
         updateTeam(data:TeamData) {
             this.database.teams.find(team=>team.id==data.id).import(data)
+        }
+
+        updateFootballer(data:FootballerData) {
+            this.database.footballers.find(footballer=>footballer.id==data.id).import(data)
         }
         
     }

@@ -12,13 +12,14 @@
                 <button class="btn btn-primary" @click="createTeam">Create team</button>
             </div>
             <div class="col-md-9">
-                <div v-if="selectedTeam" class="editor-card">
+                <div id="teamEditorCard" class="editor-card" v-if="selectedTeam">
+
                     <p class="small text-muted">ID: {{teamSelector}}</p>
-                    <div id="teamCard" class="form-group">
+                    <div class="form-group">
                         <label>Name</label>
                         <input class="form-control" type="text" name="name" :value="selectedTeam.name" @keyup="updateTeam" @change="updateTeam"/>
                     </div>
-                    <div id="teamCard" class="form-group">
+                    <div class="form-group">
                         <label>League</label>
                         <basic-select
                             :options="leagueOptions"
@@ -26,9 +27,8 @@
                             name="league"
                             @select="item=>{leagueSelector=item.value; updateTeam()}"
                         ></basic-select>
-                        <!-- <input class="form-control" type="text" name="league" :value="selectedTeam.league" @keyup="updateTeam" @change="updateTeam"/> -->
                     </div>
-                    <div id="teamCard" class="form-group">
+                    <div class="form-group">
                         <label>Cash (€)</label>
                         <input step="5000" class="form-control" type="number" name="cash" :value="selectedTeam.cash||0" @mouseup="updateTeam" @keyup="updateTeam" @change="updateTeam"/>
                         <p class="small text-muted">€{{Math.round(selectedTeam.cash/1000000*100)/100}}M</p>
@@ -95,8 +95,8 @@
         }
 
         updateTeam() {
-            let nameInput = document.querySelector('#teamCard input[name="name"]') as HTMLInputElement
-            let cashInput = document.querySelector('#teamCard input[name="cash"]') as HTMLInputElement
+            let nameInput = document.querySelector('#teamEditorCard input[name="name"]') as HTMLInputElement
+            let cashInput = document.querySelector('#teamEditorCard input[name="cash"]') as HTMLInputElement
             let teamData:TeamData = {
                 id: this.teamSelector,
                 name: nameInput.value,
