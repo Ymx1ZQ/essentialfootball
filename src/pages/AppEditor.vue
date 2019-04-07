@@ -43,19 +43,19 @@
     import FootballersEditor from '../components/editor/FootballersEditor'
     import LeaguesEditor from '../components/editor/LeaguesEditor'
     import TeamsEditor from '../components/editor/TeamsEditor'
+    import StarsSelector from '../components/editor/StarsSelector'
 
     @Component({
         components: {
             "footballers-editor": FootballersEditor,
             "leagues-editor": LeaguesEditor,
-            "teams-editor": TeamsEditor
+            "teams-editor": TeamsEditor,
+            "stars-selector": StarsSelector
         }
     } as ComponentOptions<Vue>)
     
     export default class AppEditor extends Vue {
         // props
-        // @Prop(String) readonly agencyId: string
-        // @Prop(String) readonly apiToken: string
         
         // data
         database:Database = {
@@ -84,11 +84,27 @@
             let footballer:Footballer = new Footballer()
             let footballerData:FootballerData = {
                 id: footballer.id,
+                
+                // personal data
                 firstName: 'new',
                 lastName: 'footballer',
                 nickName: '',
                 birthDate: '1987-08-31',
-                team: undefined
+                injuryDays: 0,
+                team: undefined,
+
+                // attributes
+                energy: 80,
+                morale: 80,
+                condition: 67,
+                experience: 67,
+                mental: 67,
+                technical: 67,
+                tactical: 67,
+                physical: 67,
+                flair: 67,
+                potential: 67,
+                reputation: 67
             }
             footballer.import(footballerData)
             this.database.footballers.push(footballer)
